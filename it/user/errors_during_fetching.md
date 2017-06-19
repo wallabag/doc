@@ -1,5 +1,9 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 # Errori durante l'ottenimento degli articoli
+=======
+# Errori nell'ottenere gli articoli
+>>>>>>> Update doc about site_credentials
 =======
 # Errori nell'ottenere gli articoli
 >>>>>>> Update doc about site_credentials

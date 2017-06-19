@@ -7,9 +7,15 @@ Assicuratevi che la vostra rispetti questa. Se non sapete quale
 parametro dovete impostare, si prega di lasciare quello di default.
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 > **[danger] Information**
 >
 > To apply changes to `parameters.yml`, you have to clear your cache by deleting everything in `var/cache` with this command: `bin/console cache:clear -e=prod`.
+=======
+> **[pericolo] Informazione**
+>
+> Per applicare i cambiamenti a `parameters.yml`, dovete pulire la cache eliminando tutti i contenuti della cartella `var/cache` con questo comando: `bin/console cache:clear -e=prod`.
+>>>>>>> Update doc about site_credentials
 =======
 > **[pericolo] Informazione**
 >

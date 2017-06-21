@@ -1,8 +1,7 @@
 Asynchronous tasks
 ==================
 
-In order to launch asynchronous tasks (useful for huge imports for
-example), we can use RabbitMQ or Redis.
+In order to launch asynchronous tasks (useful for huge imports for example), we can use RabbitMQ or Redis.
 
 Install RabbitMQ for asynchronous tasks
 ---------------------------------------
@@ -35,8 +34,7 @@ rabbitmqctl stop
 
 ### Configure RabbitMQ in wallabag
 
-Edit your `app/config/parameters.yml` file to edit RabbitMQ
-configuration. The default one should be ok:
+Edit your `app/config/parameters.yml` file to edit the RabbitMQ configuration. The default one should be ok:
 
 ```
 rabbitmq_host: localhost
@@ -48,13 +46,11 @@ rabbitmq_prefetch_count: 10 # read http://www.rabbitmq.com/consumer-prefetch.htm
 
 ### Enable RabbitMQ in wallabag
 
-In internal settings, in the **Import** section, enable RabbitMQ (with
-the value 1).
+In internal settings, in the **Import** section, enable RabbitMQ (with the value 1).
 
 ### Launch RabbitMQ consumer
 
-Depending on which service you want to import from you need to enable
-one (or many if you want to support many) cron job:
+Depending on which service you want to import from you need to enable one (or many if you want to support many) cron job:
 
 ```
 # for Pocket import
@@ -82,8 +78,7 @@ bin/console rabbitmq:consumer -e=prod import_chrome -w
 Install Redis for asynchronous tasks
 ------------------------------------
 
-In order to launch asynchronous tasks (useful for huge imports for
-example), we can use Redis.
+In order to launch asynchronous tasks (useful for huge imports for example), we can use Redis.
 
 ### Requirements
 
@@ -97,8 +92,7 @@ apt-get install redis-server
 
 ### Launch
 
-The server might be already running after installing, if not you can
-launch it using:
+The server might be already running after installing, if not you can launch it using:
 
 ```
 redis-server
@@ -116,13 +110,11 @@ redis_port: 6379
 
 ### Enable Redis in wallabag
 
-In internal settings, in the **Import** section, enable Redis (with the
-value 1).
+In internal settings, in the **Import** section, enable Redis (with the value 1).
 
 ### Launch Redis consumer
 
-Depending on which service you want to import from you need to enable
-one (or many if you want to support many) cron job:
+Depending on which service you want to import from you need to enable one (or many if you want to support many) cron job:
 
 ```
 # for Pocket import
@@ -147,9 +139,7 @@ bin/console wallabag:import:redis-worker -e=prod firefox -vv >> /path/to/wallaba
 bin/console wallabag:import:redis-worker -e=prod chrome -vv >> /path/to/wallabag/var/logs/redis-chrome.log
 ```
 
-If you want to launch the import only for some messages and not all, you
-can specify this number (here 12) and the worker will stop right after
-the 12th message :
+If you want to launch the import only for some messages and not all, you can specify this number (here 12) and the worker will stop right after the 12th message :
 
 ```
 bin/console wallabag:import:redis-worker -e=prod pocket -vv --maxIterations=12

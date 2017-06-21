@@ -9,8 +9,7 @@ Do not forget to active the *rewrite* mod of Apache
 a2enmod rewrite && systemctl reload apache2
 ```
 
-Assuming you install wallabag in the `/var/www/wallabag` folder and that
-you want to use PHP as an Apache module, here's a vhost for wallabag:
+Assuming you install wallabag in the `/var/www/wallabag` folder and that you want to use PHP as an Apache module, here's a vhost for wallabag:
 ```apache
 <VirtualHost *:80>
     ServerName domain.tld
@@ -30,12 +29,6 @@ you want to use PHP as an Apache module, here's a vhost for wallabag:
         </IfModule>
     </Directory>
 
-    # uncomment the following lines if you install assets as symlinks
-    # or run into problems when compiling LESS/Sass/CoffeScript assets
-    # <Directory /var/www/wallabag>
-    #     Options FollowSymlinks
-    # </Directory>
-
     # optionally disable the RewriteEngine for the asset directories
     # which will allow apache to simply reply with a 404 when files are
     # not found instead of passing the request into the full symfony stack
@@ -49,9 +42,7 @@ you want to use PHP as an Apache module, here's a vhost for wallabag:
 </VirtualHost>
 ```
 
-Note for Apache 2.4, in the section
-&lt;Directory /var/www/wallabag/web&gt; you have to replace the
-directives :
+For Apache 2.4, in the section `<Directory /var/www/wallabag/web >` you have to replace the directives :
 
 ```apache
 AllowOverride None
@@ -70,8 +61,7 @@ wallabag at <http://domain.tld>.
 
 ### Configuration on Nginx
 
-Assuming you installed wallabag in the `/var/www/wallabag` folder,
-here's the recipe for wallabag :
+Assuming you installed wallabag in the `/var/www/wallabag` folder, here's the recipe for wallabag :
 
 ```nginx
 server {
@@ -83,7 +73,7 @@ server {
         try_files $uri /app.php$is_args$args;
     }
     location ~ ^/app\.php(/|$) {
-        fastcgi_pass unix:/var/run/php5-fpm.sock;
+        fastcgi_pass unix:/var/run/php/php7.0-fpm.sock;
         fastcgi_split_path_info ^(.+\.php)(/.*)$;
         include fastcgi_params;
         # When you are using symlinks to link the document root to the
@@ -112,18 +102,20 @@ server {
 }
 ```
 
-After reloading or restarting nginx, you should now be able to access
-wallabag at <http://domain.tld>.
+After reloading or restarting nginx, you should now be able to access wallabag at <http://domain.tld>.
 
-When you want to import large files into wallabag, you need to add this
-line in your nginx configuration
+{% hint style='info' %}
+If you need to import large files into wallabag, you need to add this line in your nginx configuration
 `client_max_body_size XM; # allows file uploads up to X megabytes`.
+{% endhint %}
 
 ### Configuration on lighttpd
 
-Assuming you install wallabag in the `/var/www/wallabag` folder, here's
-the recipe for wallabag (edit your `lighttpd.conf` file and paste this
-configuration into it):
+{% hint style='info' %}
+This section may be obsolete or not working.
+{% endhint %}
+
+Assuming you install wallabag in the `/var/www/wallabag` folder, here's the recipe for wallabag (edit your `lighttpd.conf` file and paste this configuration into it):
 ```
 server.modules = (
     "mod_fastcgi",

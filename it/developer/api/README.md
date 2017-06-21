@@ -13,4 +13,4 @@ Requisiti
     anche adattare i comandi usando curl o wget.
 -   tutti i metodi API documentati qui <http://localhost:8000/api/doc>
     (sulla vostra istanza) e [sulla nostra istanza
-    d'esempio](http://v2.wallabag.org/api/doc)
+    d'esempio](http://app.wallabag.it/api/doc)

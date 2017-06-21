@@ -102,3 +102,4 @@ There is no automatic script to update from wallabag 1.x to wallabag
 -   export your data
 -   install wallabag 2.x ([read the installation documentation](./installation/))
 -   import data in this fresh installation ([read the import documentation](../user/import/) )
+

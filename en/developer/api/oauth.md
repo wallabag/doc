@@ -1,11 +1,9 @@
 # Creating a new API client
 
-In your wallabag account, you can create a new API client at this URL
-http://localhost:8000/developer/client/create.
+In your wallabag account, you can create a new API client at this URL http://localhost:8000/developer/client/create.
 
 Just give the redirect URL of your application and create your client.
-If your application is a desktop one, put whatever URL suits you the
-most.
+If your application is a desktop one, put whatever URL suits you the most.
 
 You get information like this:
 
@@ -21,9 +19,18 @@ Client secret:
 
 # Obtaining a access token
 
-For each API call, you'll need a token. Let's create it with this
-command (replace `client_id`, `client_secret`, `username` and `password`
-with their values):
+For each API call, you'll need a token. Let's create it with this command (replace `client_id` and `client_secret` with their values):
+
+```bash
+http POST http://localhost:8000/oauth/v2/token \
+    grant_type=client_credentials \
+    client_id=1_3o53gl30vhgk0c8ks4cocww08o84448osgo40wgw4gwkoo8skc \
+    client_secret=636ocbqo978ckw0gsw4gcwwocg8044sco0w8w84cws48ggogs4
+```
+
+{% hint style='info' %}
+Before wallabag 2.3, the `password` `grant_type` was the only one possible and you couldn't just use `client_credentials`. With this authentication method, you needed to provide the user's credentials. [Read more](https://github.com/wallabag/wallabag/pull/3227)
+Example :
 
 ```bash
 http POST http://localhost:8000/oauth/v2/token \
@@ -32,6 +39,15 @@ http POST http://localhost:8000/oauth/v2/token \
     client_secret=636ocbqo978ckw0gsw4gcwwocg8044sco0w8w84cws48ggogs4 \
     username=wallabag \
     password=wallabag
+```
+
+Knowing wallabag version to get which authentication methods can be supported can be easily done with a simple GET request to `api/version`.
+{% endhint %}
+
+cURL example:
+
+```bash
+curl -s "https://localhost:8000/oauth/v2/token?grant_type=client_credentials&client_id=1_3o53gl30vhgk0c8ks4cocww08o84448osgo40wgw4gwkoo8skc&client_secret=636ocbqo978ckw0gsw4gcwwocg8044sco0w8w84cws48ggogs4"
 ```
 
 You'll have this in return:
@@ -51,16 +67,9 @@ X-Powered-By: PHP/7.0.4
 {
     "access_token": "ZGJmNTA2MDdmYTdmNWFiZjcxOWY3MWYyYzkyZDdlNWIzOTU4NWY3NTU1MDFjOTdhMTk2MGI3YjY1ZmI2NzM5MA",
     "expires_in": 3600,
-    "refresh_token": "OTNlZGE5OTJjNWQwYzc2NDI5ZGE5MDg3ZTNjNmNkYTY0ZWZhZDVhNDBkZTc1ZTNiMmQ0MjQ0OThlNTFjNTQyMQ",
     "scope": null,
     "token_type": "bearer"
 }
 ```
 
 We'll work with the `access_token` value in our next calls.
-
-cURL example:
-
-```bash
-curl -s "https://localhost:8000/oauth/v2/token?grant_type=password&client_id=1_3o53gl30vhgk0c8ks4cocww08o84448osgo40wgw4gwkoo8skc&client_secret=636ocbqo978ckw0gsw4gcwwocg8044sco0w8w84cws48ggogs4&username=wallabag&password=wallabag"
-```

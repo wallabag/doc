@@ -1,7 +1,6 @@
 # Retrieve your articles with filters
 
-To retrieve articles easily, you can use filters. Click on the third
-icon in the top bar.
+To retrieve articles easily, you can use filters. Click on the third icon in the top bar.
 
 ![Top bar](../../img/user/topbar.png)
 
@@ -15,8 +14,7 @@ Use these checkboxes to find archived or starred articles.
 
 ## Preview picture
 
-Check this filter if you want to retrieve articles with a preview
-picture.
+Check this filter if you want to retrieve articles with a preview picture.
 
 ## Language
 
@@ -25,8 +23,7 @@ retrieve articles written in a specific language.
 
 ## HTTP status
 
-You can retrieve the articles by filtering by their HTTP status code:
-200, 404, 500, etc.
+You can retrieve the articles by filtering by their HTTP status code: 200, 404, 500, etc.
 
 ## Reading time
 

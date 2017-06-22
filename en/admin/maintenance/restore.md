@@ -35,7 +35,7 @@ PGPASSWORD="password" psql -h [server] -U [username] -d wallabag -c "CREATE DATA
 
 #### SQLite
 ```bash
-rm data/owncloud.db
+rm data/db/wallabag.sqlite
 ```
 
 ### Restoring
@@ -52,5 +52,5 @@ PGPASSWORD="password" pg_restore -c -d wallabag -h [server] -U [username] wallab
 
 #### SQLite
 ```bash
-sqlite3 data/owncloud.db < wallabag-sqlbkp.bak
+sqlite3 data/db/wallabag.sqlite < wallabag-sqlbkp.bak
 ```

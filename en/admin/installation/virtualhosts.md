@@ -104,16 +104,15 @@ server {
 
 After reloading or restarting nginx, you should now be able to access wallabag at <http://domain.tld>.
 
-{% hint style='info' %}
-If you need to import large files into wallabag, you need to add this line in your nginx configuration
-`client_max_body_size XM; # allows file uploads up to X megabytes`.
-{% endhint %}
+> **[info] Large files**
+>
+> If you need to import large files into wallabag, you need to add this line in your nginx configuration `client_max_body_size XM; # allows file uploads up to X megabytes`.
 
 ### Configuration on lighttpd
 
-{% hint style='info' %}
-This section may be obsolete or not working.
-{% endhint %}
+> **[info] Obsolete**
+>
+> This section may be obsolete or not working.
 
 Assuming you install wallabag in the `/var/www/wallabag` folder, here's the recipe for wallabag (edit your `lighttpd.conf` file and paste this configuration into it):
 ```

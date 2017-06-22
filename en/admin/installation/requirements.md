@@ -29,9 +29,9 @@ For best performance, stability, support, and full functionality we recommend:
 
 wallabag uses the library ORM Doctrine to connect to databases, limiting support for SQLite, MySQL and PostgreSQL.
 
-{% hint style='danger' %}
-Starting with wallabag 2.3, SQLite is no longer the default database selected and will not be supported anymore in the future.
-{% endhint %}
+> **[danger] SQLite compatibility**
+>
+> Starting with wallabag 2.3, SQLite is no longer the default database selected and will not be supported anymore in the future.
 
 Choosing between MySQL and PostgreSQL is more a matter of:
 * If one of them is already installed

@@ -25,8 +25,8 @@ In a standard wallabag installation the log level is set to *production* (or `er
 
 For JavaScript issues you will also need to view the javascript console of your browser. All major browsers have developer tools for viewing the console, and you usually access them by pressing F12.
 
-{% hint style='info' %}
-The logfile of wallabag is located in the data directory `wallabag/var/log/prod.log`.
-{% endhint %}
+> **[info] Logs location**
+>
+> The logfile of wallabag is located in the data directory `wallabag/var/log/prod.log`.
 
 Server logs usally are inside the `/var/log` folder of your server.

@@ -6,10 +6,9 @@ Before doing an update, you should always do [a full backup](backup.md) of your 
 
 It is best to keep your wallabag server upgraded regularly, and to install all point releases and major releases without skipping any of them, as skipping releases increases the risk of errors.
 
-{% hint style='danger' %}
-Even though possible, downgrading is not supported and risks corrupting your data! If you want to revert to an older wallabag version, make a new, fresh installation and then restore your data from backup. Before doing this, you should ask for help in [the wallabag forums](https://community.wallabag.org) to see if your issue can be resolved without downgrading.
-{% endhint %}
-
+> **[danger] Downgrading**
+>
+> Even though possible, downgrading is not supported and risks corrupting your data! If you want to revert to an older wallabag version, make a new, fresh installation and then restore your data from backup. Before doing this, you should ask for help in [the wallabag forums](https://community.wallabag.org) to see if your issue can be resolved without downgrading.
 
 ## Upgrading
 

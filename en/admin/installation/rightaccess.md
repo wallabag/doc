@@ -44,9 +44,9 @@ file_put_contents(/.../wallabag/vendor/autoload.php): failed to open stream: Per
 
 ### Additional rules for SELinux
 
-{% hint style='info' %}
-This section may be obsolete.
-{% endhint %}
+> **[info] Obsolete**
+>
+> This section may be obsolete.
 
 If SELinux is enabled on your system, you will need to configure additional contexts in order for wallabag to function properly. To check if SELinux is enabled, simply enter the following:
 

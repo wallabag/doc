@@ -3,20 +3,25 @@ Console Commands
 
 wallabag has a number of CLI commands to manage a number of tasks. You can list all the commands by executing `bin/console` in the wallabag folder.
 
-{% hint style='info' %}
-Each command has a help accessible through `bin/console help %command%`.
-{% endhint %}
 
-{% hint style='tip' %}
-If you're in a production environment, remember to add `-e prod` to each command.
-{% endhint %}
+> **[info] Command help**
+>
+> Each command has a help accessible through `bin/console help %command%`.
+
+<!-- -->
+
+> **[success] Production mode**
+>
+> If you're in a production environment (you should), remember to add `-e prod` to each command.
+
 
 Notable commands
 ----------------
 
-{% hint style='info' %}
-These commands must be used like this: `bin/console %command%`.
-{% endhint %}
+> **[info] Usage**
+>
+> These commands must be used like this: `bin/console %command%`.
+
 
 From Symfony:
 

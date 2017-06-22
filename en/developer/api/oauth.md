@@ -28,21 +28,22 @@ http POST http://localhost:8000/oauth/v2/token \
     client_secret=636ocbqo978ckw0gsw4gcwwocg8044sco0w8w84cws48ggogs4
 ```
 
-{% hint style='info' %}
-Before wallabag 2.3, the `password` `grant_type` was the only one possible and you couldn't just use `client_credentials`. With this authentication method, you needed to provide the user's credentials. [Read more](https://github.com/wallabag/wallabag/pull/3227)
-Example :
+> **[info] Old behaviour**
+>
+> Before wallabag 2.3, the `password` `grant_type` was the only one possible and you couldn't just use `client_credentials`. With this authentication method, you needed to provide the user's credentials. [Read more](https://github.com/wallabag/wallabag/pull/3227)
 
-```bash
-http POST http://localhost:8000/oauth/v2/token \
-    grant_type=password \
-    client_id=1_3o53gl30vhgk0c8ks4cocww08o84448osgo40wgw4gwkoo8skc \
-    client_secret=636ocbqo978ckw0gsw4gcwwocg8044sco0w8w84cws48ggogs4 \
-    username=wallabag \
-    password=wallabag
-```
-
-Knowing wallabag version to get which authentication methods can be supported can be easily done with a simple GET request to `api/version`.
-{% endhint %}
+> Example :
+>
+> ```bash
+> http POST http://localhost:8000/oauth/v2/token \
+>     grant_type=password \
+>     client_id=1_3o53gl30vhgk0c8ks4cocww08o84448osgo40wgw4gwkoo8skc \
+>     client_secret=636ocbqo978ckw0gsw4gcwwocg8044sco0w8w84cws48ggogs4 \
+>     username=wallabag \
+>     password=wallabag
+> ```
+>
+> Knowing wallabag version to get which authentication methods can be supported can be easily done with a simple GET request to `api/version`.
 
 cURL example:
 

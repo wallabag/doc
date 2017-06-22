@@ -50,6 +50,7 @@
     * [Restore](admin/maintenance/restore.md)
     * [Upgrade](admin/maintenance/upgrades/upgrade.md)
         * [Upgrade from 2.1](admin/maintenance/upgrades/upgrade21-22.md)
+            * [Queries for upgrade](admin/maintenance/upgrades/query-upgrade-21-22.md)
         * [Upgrade from 2.0](admin/maintenance/upgrades/upgrade20-21.md)
         * [Upgrade from 1.x](admin/maintenance/upgrades/upgrade1x.md)
 * [Console commands](admin/console_commands.md)

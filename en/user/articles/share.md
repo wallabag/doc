@@ -1,7 +1,6 @@
 # Share your articles
 
-When you're reading an article, you can share it. Just click on the
-share button:
+When you're reading an article, you can share it. Just click on the share button:
 
 ![share article](../../../img/user/share.png)
 
@@ -14,3 +13,4 @@ Now, you can share the article:
 -   with a post in Diaspora*
 -   to Carrot
 -   with an email
+-   and more…

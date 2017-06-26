@@ -2,13 +2,13 @@
 
 ## Default parameters.yml file
 
-Here is the last version of the default app/config/parameters.yml file.
+Here is the last version of the default `app/config/parameters.yml` file.
 Be sure that yours respects this one. If you don't know which value you
 need to set, please leave the default one.
 
 > **[danger] Information**
 >
-> To apply changes to `parameters.yml`, you have to clear your cache by deleting everything in `var/cache` with this command: `bin/console cache:clear -e=prod`.
+> To apply changes to `parameters.yml`, you have to clear your cache by deleting everything in `var/cache/` with this command: `bin/console cache:clear -e=prod`.
 
 ```yaml
 parameters:

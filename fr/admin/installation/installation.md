@@ -9,6 +9,12 @@ git clone https://github.com/wallabag/wallabag.git
 cd wallabag && make install
 ```
 
+Pour utiliser Wallabag avec LDAP, remplacer la dernière commande par
+```bash
+cd wallabag && make install LDAP_ENABLED=true
+```
+Voir plus bas pour la configuration spécifique de LDAP.
+
 Pour démarrer le serveur interne à php et vérifier que tout s'est
 installé correctement, vous pouvez exécuter :
 
@@ -75,3 +81,30 @@ directement depuis le store.
 
 [Installer wallabag sur
 Cloudron](https://cloudron.io/store/org.wallabag.cloudronapp.html)
+
+## Installation avec LDAP
+
+Wallabag peut être utilisé avec LDAP. Pour activer LDAP, il faut ajouter le
+composant correspondant à l’installation, et éditer le fichier
+`app/config/parameters.yml` pour le configurer :
+ - `ldap_enabled`: booléen, `true` pour activer l’authentification via LDAP
+ - `ldap_host`: hôte LDAP auquel se connecter.
+ - `ldap_port`: port LDAP à utiliser.
+ - `ldap_tls`: booléen, Utiliser TLS (ne peut être utilisé simultanément avec SSL)
+ - `ldap_ssl`: booléen, Utiliser SSL (ne peut être utilisé simultanément avec TLS)
+ - `ldap_bind_requires_dn`: booléen, `true` pour utiliser le DN pour se
+   connecter à LDAP
+ - `ldap_manager_dn`: DN de l’instance Wallabag qui peut chercher des
+   utilisateurs.
+ - `ldap_manager_pw`: Mot de passe de l’instance Wallabag qui peut chercher des
+   utilisateurs.
+ - `ldap_filter`: Filtre pour rechercher des utilisateurs wallaabag.
+ - `ldap_username_attribute`: attribut LDAP pour le pseudonyme.
+ - `ldap_email_attribute`: attribut LDAP pour l’E-mail.
+ - `ldap_name_attribute`: attribut LDAP pour le nom.
+ - `ldap_enabled_attribute`: attribut LDAP pour vérifier qu’un utilisateur est
+   activé (optionnel, par défaut `null` considère tous les utililsateurs comme
+   actifs)
+ - `ldap_admin_filter`: Filtre LDAP pour vérifier si l’utilisateur a les droits
+   administrateurs. "%s" est remplacé par le login entré par l’utilisateur
+

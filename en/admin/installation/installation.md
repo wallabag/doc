@@ -9,6 +9,12 @@ git clone https://github.com/wallabag/wallabag.git
 cd wallabag && make install
 ```
 
+If you want to use LDAP, replace last command with
+```bash
+cd wallabag && make install LDAP_ENABLED=true
+```
+See below for specific LDAP configuration.
+
 To start PHP's build-in server and test if everything did install
 correctly, you can do:
 
@@ -70,3 +76,25 @@ store.
 
 [Install wallabag on your
 Cloudron](https://cloudron.io/store/org.wallabag.cloudronapp.html)
+
+## Installation with LDAP
+
+Wallabag comes with LDAP integration. To enable LDAP, you need to add the
+component at install time, and edit `app/config/parameters.yml` with the
+configuration:
+ - `ldap_enabled`: boolean, `true` to enable LDAP authentication
+ - `ldap_host`: LDAP host to contact
+ - `ldap_port`: LDAP port to use
+ - `ldap_tls`: booelan, Use TLS (cannot be enabled together with SSL)
+ - `ldap_ssl`: boolean, Use SSL (cannot be enabled together with TLS)
+ - `ldap_bind_requires_dn`: boolean, `true` to use DN to bind to LDAP
+ - `ldap_manager_dn`: DN of the Wallabag instance who can search for users
+ - `ldap_manager_pw`: Password of the Wallabag instance who can search for users
+ - `ldap_filter`: Filter to search for the wallabag users
+ - `ldap_username_attribute`: LDAP attribute to use as username
+ - `ldap_email_attribute`: LDAP attribute to use as e-mail
+ - `ldap_name_attribute`: LDAP attribute to use as name
+ - `ldap_enabled_attribute`: LDAP attribute to check if user is enabled
+   (optional, default `null` doesn’t check if user is enabled)
+ - `ldap_admin_filter`: LDAP filter to check that user has admin rights. %s is
+   replaced by the login entered by the user.

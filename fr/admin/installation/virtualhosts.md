@@ -62,7 +62,7 @@ Allow from All
 par
 
 ```apache
-Require All granted
+Require all granted
 ```
 
 Après que vous ayez rechargé/redémarré Apache, vous devriez pouvoir
@@ -84,7 +84,9 @@ server {
         try_files $uri /app.php$is_args$args;
     }
     location ~ ^/app\.php(/|$) {
-        fastcgi_pass unix:/var/run/php5-fpm.sock;
+        # Si vous utilisez PHP 5 remplacez
+        # /run/php/php7.0 par /var/run/php5
+        fastcgi_pass unix:/run/php/php7.0-fpm.sock;
         fastcgi_split_path_info ^(.+\.php)(/.*)$;
         include fastcgi_params;
         # When you are using symlinks to link the document root to the
@@ -126,7 +128,7 @@ En imaginant que vous vouliez installer wallabag dans le dossier
 `/var/www/wallabag`, voici un fichier de configuration pour wallabag
 (éditez votre fichier `lighttpd.conf` collez-y cette configuration) :
 
-```
+```lighttpd
 server.modules = (
     "mod_fastcgi",
     "mod_access",
@@ -158,3 +160,25 @@ url.rewrite-if-not-file = (
     "^/([^?]*)" => "/app.php?=$1",
 )
 ```
+
+## Configuration avec Caddy
+
+En imaginant que vous vouliez installer wallabag dans le dossier
+`/var/www/wallabag`, voici un caddyfile pour wallabag
+
+```caddy
+yourdomain.ru {
+  root /var/www/wallabag/web
+  fastcgi / /var/run/php7-fpm.sock php {
+    index app.php
+  }
+  rewrite / {
+    to {path} {path}/ /app.php?{query}
+  }
+  tls your@email.ru
+  log /var/log/caddy/wbg.access.log
+  errors /var/log/caddy/wbg.error.log
+}
+```
+
+Vous pouvez aussi ajouter une directive `push` pour http/2 et aussi `gzip` pour compression. Le caddyfile est testé avec caddy v0.10.4

@@ -1,12 +1,4 @@
-<<<<<<< HEAD
-<<<<<<< HEAD
-# Errori durante l'ottenimento degli articoli
-=======
 # Errori nell'ottenere gli articoli
->>>>>>> Update doc about site_credentials
-=======
-# Errori nell'ottenere gli articoli
->>>>>>> Update doc about site_credentials
 
 ## Perché l'ottenimento di un articolo fallisce?
 
@@ -42,11 +34,7 @@ Potete poi inviare una pull request a
 [<https://github.com/fivefilters/ftr-site-config>](https://github.com/fivefilters/ftr-site-config)
 il quale è il repository ufficiale per i file siteconfig.
 
-<<<<<<< HEAD
 ## Come posso provare a riottenere questo articolo?
-=======
-# Come posso provare a riottenere questo articolo?
->>>>>>> Update doc about site_credentials
 
 Se wallabag ha fallito a ottenere l'articolo, potete cliccare sul
 bottone di ricaricamento (il terzo bottone nella figura sottostante).

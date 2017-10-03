@@ -5,7 +5,7 @@
 > This is the technical part about the paywall. If you are looking for the user part, please check [that page instead](../user/articles/restricted.md).
 
 Read [this part of the documentation](../user/errors_during_fetching.md)
-to understand the configuration files, which are located under `vendor/j0k3r/graby-site-config/`. For most of the websites, this file
+to understand the configuration files, which are located under `j0k3r/graby-site-config/`(https://github.com/j0k3r/graby-site-config). For most of the websites, this file
 is already configured: the following instructions are only for the websites that are not configured yet.
 
 Each parsing configuration file needs to be improved by adding

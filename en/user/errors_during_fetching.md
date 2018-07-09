@@ -20,7 +20,7 @@ Please report that error (and the whole text around in the log file) when openin
 If you can't find an error message in the log and really can't find a way to parse the content after trying the previous 2 steps, you can enable log which will help us to find why it fails.
 
 - edit `app/config/config_prod.yml`
-- replace [in line 18](https://github.com/wallabag/wallabag/blob/master/app/config/config_prod.yml#L18) `error` to `debug`
+- replace [in line 18](https://github.com/wallabag/wallabag/blob/master/app/config/config_prod.yml#L18) and [line 23](https://github.com/wallabag/wallabag/blob/master/app/config/config_prod.yml#L23) from `error` to `debug`
 - `rm -rf var/cache/*`
 - empty file `var/log/prod.log`
 - reload your wallabag and refetch the content

@@ -37,10 +37,10 @@ With this package, wallabag doesn't check for mandatory extensions used
 in the application (theses checks are made during `composer install`
 when you have a dedicated web server, see above).
 
-Execute this command to download and extract the latest package:
+Execute this command to download and extract the latest package (please replace the version with the latest one) :
 
 ```bash
-wget https://wllbg.org/latest-v2-package && tar xvf latest-v2-package
+wget https://static.wallabag.org/releases/wallabag-release-2.3.8.tar.gz && tar xvf latest-v2-package
 ```
 
 You will find the [md5 hash of the latest package on our

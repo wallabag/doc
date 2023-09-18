@@ -1,30 +1,29 @@
 # Installation
 
-##  On a dedicated web server
+## On a dedicated web server
 
-###  Step 1:  Choose an URL for Wallabag
+### Step 1: choose an URL for wallabag
 
-The Wallabag developers recommend installing Wallabag at the root of a
+The wallabag developers recommend installing wallabag at the root of a
 domain (or subdomain).  Installation in a subdirectory can work, but is 
 not officially supported (and is not described in this documentation).
 
-In order to install Wallabage at the root of a domain (or subdomain),
+In order to install wallabag at the root of a domain (or subdomain),
 you will need to choose, configure, and publish that domain (or
 subdomain) via your DNS server.
 
-(Unsupported alternative #1:  You could dedicate a whole IP address (or 
-port) to Wallabag, but that may be more complicated.)
-
-(Unsupported Alternative #2:  You could install Wallabag in a
+- (Unsupported alternative #1:  You could dedicate a whole IP address (or 
+port) to wallabag, but that may be more complicated.)
+- (Unsupported alternative #2:  You could install wallabag in a
 subdirectory.  But doing so is not documented here.)
 
-###  Step 2:  Choose the installation directory
+### Step 2: Choose the installation directory
 
-This documentation describes installing Wallabag in
-`/var/www/wallabag`.  (Adjust these instructions as you see fit to
-attempt to install Wallabag in a different directory.)
+This documentation describes installing wallabag in
+`/var/www/wallabag`.  (Adjust this instruction as you fit to
+attempt to install wallabag in a different directory.)
 
-The root directory of the Wallabag source code contains a subdirectory
+The root directory of the wallabag source code contains a subdirectory
 named `web`.  This `web` subdirectory MUST be exposed to the document
 root of your webserver.  (Typically this is done via the webserver's
 configuration files.)  However, the source code's root directory itself
@@ -32,29 +31,28 @@ MUST NOT be exposed to the webserver's document root.
 
 For example:
 
-`/var/www/wallabag/web` MUST be exposed to your webserver's document
+- `/var/www/wallabag/web` MUST be exposed to your webserver's document
 root.
-
-`/var/www/walabag` MUST NOT be exposed to your webserver's document root.
+- `/var/www/walabag` MUST NOT be exposed to your webserver's document root.
 
 Unfortunately, at least at present, the `web` subdirectory MUST be an
-immediate child of the root directory of Wallabag's source code.  (I.e.
+immediate child of the root directory of wallabag's source code.  (I.e.
 you MUST NOT move the `web` subdirectory relative to the rest of the
 source code.)
 
 These constraints may complicate the choice of an installation
 directory.
 
-###  Step 3:  Choose the installation user
+### Step 3: Choose the installation user
 
-Decide which user will own the Wallabag source code.
+Decide which user will own the wallabag source code.
 
 Note that some (but not all) subdirectories inside the source code will
 need to be writeable by the webserver.
 
 See Step 7 (below) for additional details.
 
-###  Step 4:  Download and install the Wallabag source code
+### Step 4: Download and install the wallabag source code
 
 As the user you choose in Step 3, run the following commands (or
 similar commands, as you see fit):
@@ -68,9 +66,9 @@ similar commands, as you see fit):
     $ sudo rmdir /var/www/tmp
 
 Alternatively, instead of using `git clone`, you could download and
-extract the latest release tarball of Wallabag.
+extract the latest release tarball of wallabag.
 
-###  Step 5:  Edit the `parameters.yml` file
+### Step 5: Edit the `parameters.yml` file
 
 Edit the file `/var/www/wallabag/app/config/parameters.yml`.
 
@@ -78,8 +76,10 @@ Edit the `database_*` parameters as needed.
 
 To use SQLite, set:
 
-    database_driver: pdo_sqlite
-    database_path: '%kernel.root_dir%/../data/db/wallabag.sqlite'
+```yaml
+  database_driver: pdo_sqlite
+  database_path: '%kernel.root_dir%/../data/db/wallabag.sqlite'
+```
 
 Edit `domain_name:` to be the URL you chose in Step 1.
 
@@ -88,7 +88,7 @@ Edit `secret:`.
 Review the other parameters in the file and make any other changes as
 you wish.
 
-###  Step 6:  Run `make install`
+### Step 6: Run `make install`
 
 As the installation user, run the following commands:
 
@@ -115,19 +115,19 @@ messages will followed by the below prompt:
 
 Answering `yes` will reset (i.e. erase) the entire contents of the
 database and then create a fresh, empty set of database tables.  If
-this is your first install of Wallabag, you probably want to answer
+this is your first install of wallabag, you probably want to answer
 `yes`, in order to erase the current database and build a fresh
 database.
 
-Next, you will be propted to create a new admin user.
+Next, you will be prompted to create a new admin user.
 
-###  Step 7:  Change ownership of certain subdirectories.
+### Step 7: Change ownership of certain subdirectories.
 
-As mentioned above in Step 3 (above), Wallabag (i.e. the webserver
+As mentioned above in Step 3, wallabag (i.e. the webserver
 and/or PHP) needs write access to certain subdirectories inside
 `/var/www/wallabag`.
 
-The simplest way to give Wallabag write access to these directories
+The simplest way to give wallabag write access to these directories
 may be to change the ownership of these directories.
 
 For example, on Ubuntu, you might change the ownership by running the
@@ -142,25 +142,25 @@ changing the permissions of these files.  (I have not tested this.)
     $ cd /var/www/wallabag
     $ chmod -R a+rwX data var web/assets web/uploads
 
-Note:  If, later on, you encounter errors when running Wallabag, there
+Note:  If, later on, you encounter errors when running wallabag, there
 may be additional directories not listed above that also need to be
 writeable.
 
-###  Step 8:  Configure your webserver
+### Step 8: Configure your webserver
 
 See the [VirtualHosts](/en/admin/installation/virtualhosts) page for instructions on configuring
 common webservers.
 
-###  Step 9:  Load Wallabag in your web browser
+### Step 9: Load wallabag in your web browser
 
 After configuring your webserver (as described above in Step 8),
 open your web browser and navigate to the URL you chose in Step 1.
 
-If everything worked, you should see the Wallabag login page.  You
+If everything worked, you should see the wallabag login page.  You
 should be able to login with the username and password that you created
 in Step 6.
 
-###  Additional notes:
+### Additional notes:
 
 {% hint style="info" %}
 To define parameters with environment variables, you have to set these variables with `SYMFONY__` prefix, for example, `SYMFONY__DATABASE_DRIVER`.
@@ -168,7 +168,7 @@ You can have a look at [Symfony documentation](http://symfony.com/doc/current/co
 {% endhint %}
 
 {% hint style="info" %}
-If you're installing Wallabag behind Squid as a reverse proxy, make sure to update your `squid.conf` configuration to include `login=PASS` in the `cache_peer` line. This is necessary for API calls to work properly.
+If you're installing wallabag behind Squid as a reverse proxy, make sure to update your `squid.conf` configuration to include `login=PASS` in the `cache_peer` line. This is necessary for API calls to work properly.
 {% endhint %}
 
 ## On shared hosting

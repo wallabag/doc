@@ -1,0 +1,53 @@
+baseURL: https://doc.wallabag.org
+title: wallabag documentation
+
+theme: hextra
+
+defaultContentLanguage: en
+languages:
+  en:
+    contentDir: content/en/
+    languageName: English
+    weight: 1
+  fr:
+    contentDir: content/fr/
+    languageName: Français
+    weight: 2
+
+menu:
+  main:
+    - identifier: documentation
+      name: Documentation
+      pageRef: /
+      weight: 1
+    - name: Search
+      weight: 2
+      params:
+        type: search
+    - name: GitHub
+      weight: 3
+      url: "https://github.com/wallabag"
+      params:
+        icon: github
+
+params:
+  theme:
+    default: system
+    displayToggle: true
+
+  search:
+    enable: true
+    type: flexsearch
+
+    flexsearch:
+      index: content
+      tokenize: forward
+
+  editURL:
+    enable: true
+    base: "https://github.com/wallabag/doc/edit/master/content"
+
+  highlight:
+    copy:
+      enable: true
+      display: hover

@@ -251,7 +251,7 @@ You can also add `push` directive for http/2 and `gzip` for compression. Tested 
 
 The following configuration works on OpenBSD's `httpd`:
 
-
+```httpd
 server "wallabag.example.com" {
         listen on * tls port 443
         tls {
@@ -275,3 +275,4 @@ server "wallabag.example.com" {
                 block return 404
         }
 }
+```

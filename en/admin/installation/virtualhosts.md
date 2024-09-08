@@ -246,3 +246,32 @@ domain.tld {
 ```
 
 You can also add `push` directive for http/2 and `gzip` for compression. Tested with caddy `=v0.10.4`.
+
+## Configuration on httpd
+
+The following configuration works on OpenBSD's `httpd`:
+
+
+server "wallabag.example.com" {
+        listen on * tls port 443
+        tls {
+                certificate "/etc/ssl/example.com.fullchain.pem"
+                key "/etc/ssl/private/example.com.key"
+        }
+        location "*.css" { pass }
+        location "*.svg" { pass }
+        location "*.js" { pass }
+        location "*.ico" { pass }
+        location "*.png" { pass }
+        location "*.webp" { pass }
+        location "*.woff" { pass }
+        location "*.woff2" { pass }
+        root "/htdocs/wallabag.example.com/web"
+        location match "^/(.-)$" {
+                request rewrite "/app.php/%1"
+                fastcgi socket "/run/php-fpm.sock"
+        }
+        location "*.php*" {
+                block return 404
+        }
+}

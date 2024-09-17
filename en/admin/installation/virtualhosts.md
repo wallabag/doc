@@ -271,8 +271,5 @@ server "wallabag.example.com" {
                 request rewrite "/app.php/%1"
                 fastcgi socket "/run/php-fpm.sock"
         }
-        location "*.php*" {
-                block return 404
-        }
 }
 ```

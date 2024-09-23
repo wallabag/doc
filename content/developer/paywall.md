@@ -6,9 +6,9 @@ weight: 8
 # Configuring paywall access
 
 
-{% hint style="working" %}
+{{< callout icon="beaker" >}}
 This is the technical part about the paywall. If you are looking for the user part, please check [that page instead](../user/articles/restricted.md).
-{% endhint %}
+{{< /callout >}}
 
 Read [this part of the documentation](../user/errors_during_fetching.md)
 to understand the configuration files, which are located under `vendor/j0k3r/graby-site-config/`. For most of the websites, this file

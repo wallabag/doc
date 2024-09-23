@@ -73,9 +73,11 @@ monolog:
 
 More detailed logs will then be available in `var/logs/graby.log`, with most of the steps taken by graby to try and fetch your article. If you can't solve the issue with these logs, paste the file `var/logs/graby.log` in [a new issue on GitHub](https://github.com/wallabag/wallabag/issues/new).
 
-{% hint style="tip" %} It is possible to have **extremely** detailed logs on the modifications made by graby while fetching, parsing and cleaning the HTML code of one article, using `level: debug` instead of `level: info` in the `graby:` section above.
+{{< callout type="info" >}}
+It is possible to have **extremely** detailed logs on the modifications made by graby while fetching, parsing and cleaning the HTML code of one article, using `level: debug` instead of `level: info` in the `graby:` section above.
 
-It is very useful when writing site configuration file (see below); one must note however that all the HTML code is stored in all its intermediary states and that the log file will grow very rapidly. Use with caution :){% endhint %}
+It is very useful when writing site configuration file (see below); one must note however that all the HTML code is stored in all its intermediary states and that the log file will grow very rapidly. Use with caution :)
+{{< /callout >}}
 
 ### Creation/update of a site configuration file
 

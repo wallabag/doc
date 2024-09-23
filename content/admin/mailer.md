@@ -16,11 +16,11 @@ Since 2.6.6, the `gmail` transport is available again using the DSN: `gmail+smtp
 note: In a case, that after supplying urlencoded characters, the start up process crashes, try "escaping" them with additional % character:
 eg. pass%20word -> pass%%20word. Might be useful for Google App Passwords.
 
-{% hint style="tip" %}
+{{< callout type="info" >}}
 Symfony can support other transports which aren't shipped by default with wallabag: Amazon SES, MailChimp, Mailgun, Postmark & SendGrid.
 
 You can install them using Composer. It's a more complex step to do, [check the Symfony documentation about that](https://symfony.com/doc/4.4/mailer.html).
-{% endhint %}
+{{< /callout >}}
 
 ## Before wallabag 2.6.1
 

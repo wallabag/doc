@@ -6,9 +6,9 @@ weight: 3
 You can download each article in several formats: ePUB, MOBI, PDF, XML,
 JSON, CSV.
 
-{% hint style="warning" %}
+{{< callout type="warning" >}}
 MOBI export has been deprecated in 2.5.0 and will be removed in 2.6.0.
-{% endhint %}
+{{< /callout >}}
 
 On the article view, click on this icon, in the sidebar:
 

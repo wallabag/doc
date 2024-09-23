@@ -12,9 +12,9 @@ You will find here different ways to upgrade your wallabag:
 -   [from 2.x.y to 2.3.x](#upgrading-from-2xy-to-23x)
 -   [from 1.x to 2.x](#from-wallabag-1x)
 
-{% hint style="info" %}
+{{< callout type="info" >}}
 But **first**, ensure you have `composer` installed on your server (or at least the `composer.phar` binary in the root directory of wallabag). If not, [please install it](https://getcomposer.org/download/).
-{% endhint %}
+{{< /callout >}}
 
 ## Upgrading from 2.5.x to 2.6.x
 

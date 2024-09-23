@@ -3,9 +3,9 @@ title: Custom CSS
 weight: 3
 ---
 
-{% hint style="tip" %}
+{{< callout type="info" >}}
 Available since 2.4.0 version.
-{% endhint %}
+{{< /callout >}}
 
 You can apply some custom styles to your wallabag instance.
 

@@ -5,9 +5,9 @@ weight: 1
 
 wallabag is compatible with **PHP >= 7.4**.
 
-{% hint style="info" %}
+{{< callout type="info" >}}
 To install wallabag easily, we provide a `Makefile`, so you need to have the `make` tool.
-{% endhint %}
+{{< /callout >}}
 
 ## Composer
 

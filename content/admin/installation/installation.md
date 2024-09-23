@@ -17,18 +17,18 @@ If it's your first installation, you can safely answer "yes" when asking to rese
 Now, read the next step to create your virtual host, then
 access your wallabag.
 
-{% hint style="info" %}
+{{< callout type="info" >}}
 To define parameters with environment variables, you have to set these variables with `SYMFONY__` prefix, for example, `SYMFONY__DATABASE_DRIVER`.
 You can have a look at [Symfony documentation](http://symfony.com/doc/current/cookbook/configuration/external_parameters.html).
-{% endhint %}
+{{< /callout >}}
 
-{% hint style="tip" %}
+{{< callout type="info" >}}
 If you want to use SQLite to store your data, please put `%kernel.root_dir%/../data/db/wallabag.sqlite` for the `database_path` parameter during installation.
-{% endhint %}
+{{< /callout >}}
 
-{% hint style="info" %}
+{{< callout type="info" >}}
 If you're installing wallabag behind Squid as a reverse proxy, make sure to update your `squid.conf` configuration to include `login=PASS` in the `cache_peer` line. This is necessary for API calls to work properly.
-{% endhint %}
+{{< /callout >}}
 
 ## On shared hosting
 

@@ -2,12 +2,12 @@ Custom CSS
 ==========
 
 {% hint style="tip" %}
-Available since 2.4.0 version.
+Available since version 2.4.0.
 {% endhint %}
 
-You can apply some custom styles to your wallabag instance.
+You can apply custom styles to your wallabag instance.
 
 1. Create a file named `custom.css` in the `web/` directory
-2. Put whatever CSS you want inside and it'll be automatically loaded on each wallabag page
+2. Put any CSS you want inside. It'll be automatically loaded on each wallabag page
 
-Keep in mind that this option is instance wide and can't be adjusted per user.
+This option is instance-wide and can't be adjusted per user.

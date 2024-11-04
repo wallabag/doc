@@ -2,8 +2,8 @@
 
 ## Default parameters.yml file
 
-Here is the last version of the default app/config/parameters.yml file.
-Be sure that yours respects this one. If you don't know which value you
+Here is the latest version of the default app/config/parameters.yml file.
+Be sure that yours matches this one. If you don't know which value you
 need to set, please leave the default one.
 
 {% hint style="tip" %}

@@ -1,8 +1,7 @@
 Asynchronous tasks
 ==================
 
-In order to launch asynchronous tasks (useful for huge imports for
-example), we can use RabbitMQ or Redis.
+To launch asynchronous tasks (useful for large imports), we can use RabbitMQ or Redis.
 
 Install RabbitMQ for asynchronous tasks
 ---------------------------------------

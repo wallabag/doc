@@ -1,13 +1,6 @@
 baseURL: https://doc.wallabag.org
 title: wallabag documentation
 
-defaultContentLanguage: en
-languages:
-  en:
-    contentDir: content/en/
-    languageName: English
-    weight: 1
-
 menu:
   main:
     - identifier: documentation

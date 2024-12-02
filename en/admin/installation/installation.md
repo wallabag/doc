@@ -1,26 +1,170 @@
 # Installation
 
-## On a dedicated web server (recommended way)
+## On a dedicated web server
 
-To install wallabag itself, you must run the following commands:
+### Step 1: choose an URL for wallabag
 
-```bash
-git clone https://github.com/wallabag/wallabag.git
-cd wallabag && make install
+The wallabag developers recommend installing wallabag at the root of a
+domain (or subdomain).  Installation in a subdirectory can work, but is 
+not officially supported (and is not described in this documentation).
+
+In order to install wallabag at the root of a domain (or subdomain),
+you will need to choose, configure, and publish that domain (or
+subdomain) via your DNS server.
+
+- (Unsupported alternative #1:  You could dedicate a whole IP address (or 
+port) to wallabag, but that may be more complicated.)
+- (Unsupported alternative #2:  You could install wallabag in a
+subdirectory.  But doing so is not documented here.)
+
+### Step 2: Choose the installation directory
+
+This documentation describes installing wallabag in
+`/var/www/wallabag`.  (Adjust this instruction as you fit to
+attempt to install wallabag in a different directory.)
+
+The root directory of the wallabag source code contains a subdirectory
+named `web`.  This `web` subdirectory MUST be exposed to the document
+root of your webserver.  (Typically this is done via the webserver's
+configuration files.)  However, the source code's root directory itself
+MUST NOT be exposed to the webserver's document root.
+
+For example:
+
+- `/var/www/wallabag/web` MUST be exposed to your webserver's document
+root.
+- `/var/www/walabag` MUST NOT be exposed to your webserver's document root.
+
+Unfortunately, at least at present, the `web` subdirectory MUST be an
+immediate child of the root directory of wallabag's source code.  (I.e.
+you MUST NOT move the `web` subdirectory relative to the rest of the
+source code.)
+
+These constraints may complicate the choice of an installation
+directory.
+
+### Step 3: Choose the installation user
+
+Decide which user will own the wallabag source code.
+
+Note that some (but not all) subdirectories inside the source code will
+need to be writeable by the webserver.
+
+See Step 7 (below) for additional details.
+
+### Step 4: Download and install the wallabag source code
+
+As the user you choose in Step 3, run the following commands (or
+similar commands, as you see fit):
+
+    $ sudo mkdir /var/www/tmp
+    $ sudo chown $user:$group /var/www/tmp
+    $ cd /var/www/tmp
+    $ git clone https://github.com/wallabag/wallabag.git
+    $ sudo mv wallabag /var/www/wallabag
+    $ cd /var/www/walabag
+    $ sudo rmdir /var/www/tmp
+
+Alternatively, instead of using `git clone`, you could download and
+extract the latest release tarball of wallabag.
+
+### Step 5: Edit the `parameters.yml` file
+
+Edit the file `/var/www/wallabag/app/config/parameters.yml`.
+
+Edit the `database_*` parameters as needed.
+
+To use SQLite, set:
+
+```yaml
+  database_driver: pdo_sqlite
+  database_path: '%kernel.root_dir%/../data/db/wallabag.sqlite'
 ```
 
-If it's your first installation, you can safely answer "yes" when asking to reset the database.
+Edit `domain_name:` to be the URL you chose in Step 1.
 
-Now, read the next step to create your virtual host, then
-access your wallabag.
+Edit `secret:`.
+
+Review the other parameters in the file and make any other changes as
+you wish.
+
+### Step 6: Run `make install`
+
+As the installation user, run the following commands:
+
+    $ cd /var/www/wallabag
+    $ make clean
+    $ make install
+
+When you run `make install`, one of two things will happen:
+
+If some dependencies are missing (such as PHP modules or Composer),
+then various error messages will be printed and `make install` will
+exit.  (At this point, you may try to resolve these errors by
+installing the missing PHP modules and/or installing Composer, and then
+re-running `make install`.)
+
+Alternatively, if all dependencies are present, then numerous non-fatal
+error messages will still be printed.  However, these non-fatal error 
+messages will followed by the below prompt:
+
+    Step 2 of 4: Setting up database.
+    ---------------------------------
+
+     It appears that your database already exists. Would you like to reset it? (yes/no) [no]:
+
+Answering `yes` will reset (i.e. erase) the entire contents of the
+database and then create a fresh, empty set of database tables.  If
+this is your first install of wallabag, you probably want to answer
+`yes`, in order to erase the current database and build a fresh
+database.
+
+Next, you will be prompted to create a new admin user.
+
+### Step 7: Change ownership of certain subdirectories.
+
+As mentioned above in Step 3, wallabag (i.e. the webserver
+and/or PHP) needs write access to certain subdirectories inside
+`/var/www/wallabag`.
+
+The simplest way to give wallabag write access to these directories
+may be to change the ownership of these directories.
+
+For example, on Ubuntu, you might change the ownership by running the
+following commands:
+
+    $ cd /var/www/wallabag
+    $ sudo chown -R www-data:www-data data var web/assets web/uploads
+
+Alternatively, instead of changing ownership, you could instead try
+changing the permissions of these files.  (I have not tested this.)
+
+    $ cd /var/www/wallabag
+    $ chmod -R a+rwX data var web/assets web/uploads
+
+Note:  If, later on, you encounter errors when running wallabag, there
+may be additional directories not listed above that also need to be
+writeable.
+
+### Step 8: Configure your webserver
+
+See the [VirtualHosts](/en/admin/installation/virtualhosts) page for instructions on configuring
+common webservers.
+
+### Step 9: Load wallabag in your web browser
+
+After configuring your webserver (as described above in Step 8),
+open your web browser and navigate to the URL you chose in Step 1.
+
+If everything worked, you should see the wallabag login page.  You
+should be able to login with the username and password that you created
+in Step 6.
+
+### Additional notes:
 
 {% hint style="info" %}
 To define parameters with environment variables, you have to set these variables with `SYMFONY__` prefix, for example, `SYMFONY__DATABASE_DRIVER`.
 You can have a look at [Symfony documentation](http://symfony.com/doc/current/cookbook/configuration/external_parameters.html).
-{% endhint %}
-
-{% hint style="tip" %}
-If you want to use SQLite to store your data, please put `%kernel.root_dir%/../data/db/wallabag.sqlite` for the `database_path` parameter during installation.
 {% endhint %}
 
 {% hint style="info" %}
